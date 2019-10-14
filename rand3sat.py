@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 import random
+import sys
 
 from formula import *
 
@@ -16,6 +17,16 @@ def random_formula(nvars, nclauses):
         clauses.append(Clause(clause))
     return Formula(vars, clauses)
 
-nv = 25
-f = random_formula(nv, int(nv * 4.26))
+argc = len(sys.argv)
+assert argc <= 3
+if argc <= 1:
+    nv = 25
+else:
+    nv = int(sys.argv[1])
+if argc >= 3:
+    nc = int(sys.argv[2])
+else:
+    nc = int(nv * 4.26)
+
+f = random_formula(nv, nc)
 print(f)
