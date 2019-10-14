@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-import random
+import sys
 
 from formula import *
 
@@ -32,9 +32,7 @@ def dpll(f):
         return f.vars
     return None
 
-nv = 25
-f = random_formula(nv, int(nv * 4.26))
-print(f)
+f = read_formula(sys.argv[1])
 r = dpll(f)
 if r == None:
     print("unsat")
