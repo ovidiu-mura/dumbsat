@@ -35,8 +35,15 @@ def dpll(f):
 f = read_formula(sys.argv[1])
 r = dpll(f)
 if r == None:
-    print("unsat")
+    print("UNSAT")
 else:
+    print("SAT")
+    asgs = []
     for v in r:
-        print(v.name, v.value)
+        if v.value:
+            asgs.append(str(v.name))
+        else:
+            asgs.append("-" + str(v.name))
+    asgs.append("0")
+    print(" ".join(asgs))
 
