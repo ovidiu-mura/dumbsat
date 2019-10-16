@@ -55,7 +55,7 @@ def wsat(f, maxsteps=None, restart=None, noise=0.5):
         if f.sat():
             print("nsteps:", nsteps, file=sys.stderr)
             if restart != None:
-                print("nrestarts:", nrestarts, file=sys.stderr)
+                print("nrestart:", nrestart, file=sys.stderr)
             return f.vars
 
         # Bump counters.
