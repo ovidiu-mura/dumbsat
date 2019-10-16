@@ -84,6 +84,15 @@ class Formula(object):
                 return True
         return False
 
+    # Returns number of unsat clauses in n.
+    def nunsat(self):
+        n = 0
+        for c in self.clauses:
+            if c.unsat():
+                n += 1
+        return n
+        
+
     def __str__(self):
         comment = "c dumbsat formula in DIMACS format\n"
         header = "p cnf {} {}\n".format(len(self.vars), len(self.clauses))
